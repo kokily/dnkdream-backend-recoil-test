@@ -71,3 +71,16 @@ export const uploadImage = async (file: FileType): Promise<S3ReturnType> => {
     );
   });
 };
+
+// Clean args not null
+export function cleanAllNulls(args: object): object {
+  const notNull = {};
+
+  Object.keys(args).forEach((key) => {
+    if (args[key] !== null) {
+      notNull[key] = args[key];
+    }
+  });
+
+  return notNull;
+}
